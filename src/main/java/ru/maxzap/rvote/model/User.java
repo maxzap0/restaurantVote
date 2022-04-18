@@ -16,4 +16,5 @@ public class User {
     private String password;
     @Column(name="enabled")
     private Boolean enabled;
+    private Role role;
 }
