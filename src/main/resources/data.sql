@@ -11,7 +11,8 @@ CREATE TABLE users
     name       VARCHAR                 NOT NULL,
     email      VARCHAR                 NOT NULL,
     password   VARCHAR                 NOT NULL,
-    registered TIMESTAMP DEFAULT now() NOT NULL,
+    //ToDo registered need?
+--     registered TIMESTAMP DEFAULT now() NOT NULL,
     enabled    BOOL      DEFAULT TRUE  NOT NULL
 );
 
