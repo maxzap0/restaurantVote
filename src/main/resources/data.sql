@@ -5,13 +5,13 @@ DROP SEQUENCE IF EXISTS global_seq;
 
 CREATE TABLE users
 (
-    //ToDo create Global sequens
+--     //ToDo create Global sequens
     /*id               integer not null PRIMARY KEY default nextval('global_seq'),*/
     id         bigint auto_increment PRIMARY KEY,
     name       VARCHAR                 NOT NULL,
     email      VARCHAR                 NOT NULL,
     password   VARCHAR                 NOT NULL,
-    //ToDo registered need?
+--     //ToDo registered need?
 --     registered TIMESTAMP DEFAULT now() NOT NULL,
     enabled    BOOL      DEFAULT TRUE  NOT NULL
 );
@@ -28,8 +28,8 @@ CREATE TABLE dish
 (
     id    INTEGER auto_increment PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
-    //ToDo select data type for price
-    price double       NOT NULL,
+--     //ToDo select data type for price
+    price double       NOT NULL
 );
 
 CREATE TABLE restaurant
@@ -39,7 +39,18 @@ CREATE TABLE restaurant
     address VARCHAR(255) NOT NULL
 );
 
--- Voit
+-- Menu
+-- ---------------------------
+-- id | date | restaraunt_id |
+CREATE TABLE menu
+(
+    id      INTEGER auto_increment PRIMARY KEY,
+    date    date    NOT NULL,
+    restaurant_id INTEGER NOT NULL,
+    FOREIGN KEY (restaurant_id) REFERENCES restaurant (id) ON DELETE CASCADE
+);
+
+-- Voice
 -- -------------------------------
 -- id | date | user_id | menu_id |
 CREATE TABLE voice
@@ -52,18 +63,6 @@ CREATE TABLE voice
     FOREIGN KEY (menu_id) REFERENCES menu (id) ON DELETE CASCADE
 );
 
--- Menu
--- ---------------------------
--- id | date | restaraunt_id |
-CREATE TABLE menu
-(
-    id      INTEGER auto_increment PRIMARY KEY,
-    date    date    NOT NULL,
-    user_id INTEGER NOT NULL,
-    menu_id INTEGER NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE,
-    FOREIGN KEY (menu_id) REFERENCES menu (id) ON DELETE CASCADE
-);
 -- Menu_Dish
 -- -----------------
 -- id_menu | id_dish
