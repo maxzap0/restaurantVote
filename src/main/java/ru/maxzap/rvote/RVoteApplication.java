@@ -8,6 +8,7 @@ public class RVoteApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(RVoteApplication.class, args);
-    }
 
+
+    }
 }
