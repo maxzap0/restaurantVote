@@ -3,10 +3,10 @@ values ('admin', 'admin@gmail.com', 'admin'),
        ('user', 'user@gmail.com', 'user'),
        ('guest', 'guest@gmail.com', 'guest');
 
-/*Insert Into user_roles (user_id, role)
-values ('admin', 'admin@gmail.com', 'admin'),
-       ('user', 'user@gmail.com', 'user'),
-       ('guest', 'guest@gmail.com', 'guest');*/
+Insert Into user_role (user_id, role)
+values (1000, 'ADMIN'),
+       (1001, 'USER'),
+       (1002, 'USER');
 
 Insert Into dish (title, price)
 values ('яичница глазунья', 150.00),

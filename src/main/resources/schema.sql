@@ -5,17 +5,14 @@ CREATE SEQUENCE GLOBAL_SEQ START WITH 1000;
 
 CREATE TABLE users
 (
---     //ToDo create Global sequens
     id       INTEGER default GLOBAL_SEQ.nextval primary key,
     name     VARCHAR              NOT NULL,
     email    VARCHAR              NOT NULL,
     password VARCHAR              NOT NULL,
---     //ToDo registered need?
---     registered TIMESTAMP DEFAULT now() NOT NULL,
     enabled  BOOL    DEFAULT TRUE NOT NULL
 );
 
-CREATE TABLE user_roles
+CREATE TABLE USER_ROLE
 (
     user_id INTEGER      NOT NULL,
     role    VARCHAR(255) NOT NULL,
