@@ -1,19 +1,18 @@
 DROP TABLE IF EXISTS users;
 DROP SEQUENCE IF EXISTS global_seq;
 
-/*CREATE SEQUENCE global_seq start with 1000;*/
+CREATE SEQUENCE GLOBAL_SEQ START WITH 1000;
 
 CREATE TABLE users
 (
 --     //ToDo create Global sequens
-    /*id               integer not null PRIMARY KEY default nextval('global_seq'),*/
-    id         bigint auto_increment PRIMARY KEY,
-    name       VARCHAR                 NOT NULL,
-    email      VARCHAR                 NOT NULL,
-    password   VARCHAR                 NOT NULL,
+    id       INTEGER default GLOBAL_SEQ.nextval primary key,
+    name     VARCHAR              NOT NULL,
+    email    VARCHAR              NOT NULL,
+    password VARCHAR              NOT NULL,
 --     //ToDo registered need?
 --     registered TIMESTAMP DEFAULT now() NOT NULL,
-    enabled    BOOL      DEFAULT TRUE  NOT NULL
+    enabled  BOOL    DEFAULT TRUE NOT NULL
 );
 
 CREATE TABLE user_roles
@@ -26,7 +25,7 @@ CREATE TABLE user_roles
 
 CREATE TABLE dish
 (
-    id    INTEGER auto_increment PRIMARY KEY,
+    id    INTEGER default GLOBAL_SEQ.nextval primary key,
     title VARCHAR(255) NOT NULL,
 --     //ToDo select data type for price
     price double       NOT NULL
@@ -34,7 +33,7 @@ CREATE TABLE dish
 
 CREATE TABLE restaurant
 (
-    id      INTEGER auto_increment PRIMARY KEY,
+    id      INTEGER default GLOBAL_SEQ.nextval primary key,
     name    VARCHAR(255) NOT NULL,
     address VARCHAR(255) NOT NULL
 );
@@ -44,8 +43,8 @@ CREATE TABLE restaurant
 -- id | date | restaraunt_id |
 CREATE TABLE menu
 (
-    id      INTEGER auto_increment PRIMARY KEY,
-    date    date    NOT NULL,
+    id            INTEGER default GLOBAL_SEQ.nextval primary key,
+    date          date    NOT NULL,
     restaurant_id INTEGER NOT NULL,
     FOREIGN KEY (restaurant_id) REFERENCES restaurant (id) ON DELETE CASCADE
 );
@@ -55,7 +54,7 @@ CREATE TABLE menu
 -- id | date | user_id | menu_id |
 CREATE TABLE voice
 (
-    id       INTEGER auto_increment PRIMARY KEY,
+    id       INTEGER default GLOBAL_SEQ.nextval primary key,
     dateTime TIMESTAMP NOT NULL,
     user_id  INTEGER   NOT NULL,
     menu_id  INTEGER   NOT NULL,

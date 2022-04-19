@@ -7,3 +7,8 @@ values ('admin', 'admin@gmail.com', 'admin'),
 values ('admin', 'admin@gmail.com', 'admin'),
        ('user', 'user@gmail.com', 'user'),
        ('guest', 'guest@gmail.com', 'guest');*/
+
+Insert Into dish (title, price)
+values ('яичница глазунья', 150.00),
+('омлет', 200.00),
+('кофе', 100.00);
