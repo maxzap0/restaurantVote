@@ -17,7 +17,7 @@ public class Menu {
     @ManyToOne
     private Restaurant restaurant;
     @OneToMany
-    private List<Dish> dishs;
+    private List<Dish> dishes;
 }
 
 //    id      INTEGER auto_increment PRIMARY KEY,
