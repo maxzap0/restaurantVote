@@ -1,18 +1,26 @@
 package ru.maxzap.rvote.model;
 
+import lombok.*;
+
 import javax.persistence.*;
 
+@AllArgsConstructor
+//@RequiredArgsConstructor
+//@NoArgsConstructor
+@Getter
+@Setter
 @Entity
 @Table(name = "restaurant")
 public class Restaurant {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "global_seq", sequenceName = "global_seq", allocationSize = 1, initialValue = 1000)
+    //@SequenceGenerator(name = "global_seq", sequenceName = "global_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "global_seq")
     private Integer id;
     @Column(name = "name")
     private String name;
     @Column(name = "address")
     private String address;
-//    id      INTEGER auto_increment PRIMARY KEY,
-//    name    VARCHAR(255) NOT NULL,
-//    address VARCHAR(255) NOT NULL
+
+    public Restaurant(){};
 }
