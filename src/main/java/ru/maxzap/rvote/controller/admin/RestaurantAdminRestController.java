@@ -1,7 +1,6 @@
 package ru.maxzap.rvote.controller.admin;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import ru.maxzap.rvote.controller.RestaurantRestController;
 import ru.maxzap.rvote.model.Restaurant;

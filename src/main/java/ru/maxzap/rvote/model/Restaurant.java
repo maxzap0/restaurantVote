@@ -1,12 +1,9 @@
 package ru.maxzap.rvote.model;
-
 import lombok.*;
-
 import javax.persistence.*;
 
 @AllArgsConstructor
-//@RequiredArgsConstructor
-//@NoArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 @Entity
@@ -14,7 +11,6 @@ import javax.persistence.*;
 public class Restaurant {
     @Id
     @SequenceGenerator(name = "global_seq", sequenceName = "global_seq", allocationSize = 1, initialValue = 1000)
-    //@SequenceGenerator(name = "global_seq", sequenceName = "global_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "global_seq")
     private Integer id;
     @Column(name = "name")
@@ -22,5 +18,4 @@ public class Restaurant {
     @Column(name = "address")
     private String address;
 
-    public Restaurant(){};
 }

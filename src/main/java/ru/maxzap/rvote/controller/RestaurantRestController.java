@@ -22,6 +22,11 @@ public class RestaurantRestController {
         return service.get(id);
     }
 
+    //ToDo realiz method
+    protected Restaurant getWithMenu(Integer id){
+        return service.get(id);
+    }
+
     protected void delete(Integer id){
         service.delete(id);
     }
